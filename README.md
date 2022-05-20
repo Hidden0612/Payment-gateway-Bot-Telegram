@@ -2,10 +2,9 @@
 
 # using
 Insert the following values into the code:
-* API_KEY = ""
-* TOKEN = ""
-* BACK_URL = ""
-
+* API_KEY = Receive transaction tokens: nextpay.org
+* TOKEN = Telegram robot token
+* BACK_URL = URL or IP Server
 
 # Telegram Support 
 * Admin : @Hiddne0612
