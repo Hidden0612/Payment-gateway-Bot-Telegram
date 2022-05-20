@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/stylever.css') }}">
+    <title>وضعیت پرداخت</title>
+</head>
+
+<body>
+    {% if code == 0%}
+
+
+    <div class="page-wrapper">
+        <div class="circle-wrapper">
+            <div class="success circle"></div>
+            <div class="icon">
+                <i class="fa fa-check"></i>
+            </div>
+            <h1>موفقیت آمیز!</h1>
+            <p>شماره پیگیری :‌ {{Shaparak_Ref_Id}}</p>
+        </div>
+    </div>
+    {% else %}
+    <div class="page-wrapper">
+        <div class="circle-wrapper">
+            <div class="error circle"></div>
+            <div class="icon">
+                <i class="fa fa-times"></i>
+            </div>
+            <h1 class="alert">ناموفق!</h1>
+            <p>شماره پیگیری :‌ {{Shaparak_Ref_Id}}</p>
+        </div>
+    </div>
+
+    {% endif %}
+</body>
+
+</html>
