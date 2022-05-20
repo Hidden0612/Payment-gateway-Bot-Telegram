@@ -29,16 +29,16 @@ def check_ip(ip):
 # ================== # Send Message # ================== #
 
 
-def send_message(code, trans_id):
+def send_message(code, trans_id,Shaparak_Ref_Id):
     print("Code: ",code)
     global my_user_id
     for usr in my_user_id:
         if usr["trans_id"] == trans_id:
             user = usr["user_id"]
     if code == "0":
-        url = f'https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={user}&text={text_succ.format(usr["amount"],usr["trans_id"])}'
+        url = f'https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={user}&text={text_succ.format(usr["amount"],Shaparak_Ref_Id)}'
     else:
-        url = f'https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={user}&text={text_error.format(usr["trans_id"])}'
+        url = f'https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={user}&text={text_error.format(Shaparak_Ref_Id)}'
     try:
         requests.get(url, timeout=3)
         return True
@@ -80,7 +80,7 @@ def verify():
             "code": resp["code"],
             "Shaparak_Ref_Id": resp["Shaparak_Ref_Id"]
         }
-        send_message(resp["code"], trans_id)
+        send_message(resp["code"], trans_id,resp["Shaparak_Ref_Id"])
         return render_template("verify.html", **context)
 
 # ================== # Redirect Payment # ================== #
